@@ -1,0 +1,30 @@
+<!doctype html>
+<html lang="it">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+    <meta name="theme-color" content="#b3261e" />
+    <title>Menu</title>
+    <meta name="description" content="Il nostro menu: pizze, fritti e bevande." />
+    <link rel="stylesheet" href="assets/style.css" />
+    <script src="assets/app.js" defer></script>
+  </head>
+  <body>
+    <header class="hero">
+      <h1 id="nome-locale">Menu</h1>
+      <p id="sottotitolo" class="sottotitolo"></p>
+    </header>
+
+    <div id="avviso" class="avviso" hidden></div>
+
+    <nav id="nav-categorie" class="nav-categorie" aria-label="Categorie del menu"></nav>
+
+    <main id="menu" class="menu" aria-live="polite">
+      <p class="stato">Caricamento del menu…</p>
+    </main>
+
+    <footer class="footer">
+      <section id="info-locale" class="info-locale"></section>
+    </footer>
+  </body>
+</html>

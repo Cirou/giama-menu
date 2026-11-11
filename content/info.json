@@ -1,0 +1,12 @@
+{
+  "nome": "Pizzeria Giama",
+  "sottotitolo": "Pizza napoletana dal forno a legna",
+  "avviso": "",
+  "indirizzo": "Via Roma 1, Città",
+  "telefono": "+39 000 000 0000",
+  "orari": [
+    { "giorni": "Martedì – Domenica", "orario": "19:00 – 23:30" },
+    { "giorni": "Lunedì", "orario": "Chiuso" }
+  ],
+  "note": "Coperto € 1,50. Su richiesta impasto senza glutine (+ € 2,00). Per informazioni sugli allergeni chiedi al personale."
+}

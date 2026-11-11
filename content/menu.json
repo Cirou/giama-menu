@@ -1,0 +1,122 @@
+{
+  "categorie": [
+    {
+      "nome": "Pizze rosse",
+      "descrizione": "Impasto a lunga lievitazione (48 ore), cotto nel forno a legna.",
+      "piatti": [
+        {
+          "nome": "Marinara",
+          "ingredienti": "Pomodoro San Marzano, aglio, origano, olio extravergine d'oliva",
+          "prezzo": 5,
+          "allergeni": ["glutine"],
+          "etichette": ["vegana"],
+          "disponibile": true
+        },
+        {
+          "nome": "Margherita",
+          "ingredienti": "Pomodoro, fior di latte, basilico, olio extravergine d'oliva",
+          "prezzo": 6,
+          "allergeni": ["glutine", "latte"],
+          "etichette": ["vegetariana"],
+          "disponibile": true
+        },
+        {
+          "nome": "Diavola",
+          "ingredienti": "Pomodoro, fior di latte, salame piccante, basilico",
+          "prezzo": 7.5,
+          "allergeni": ["glutine", "latte"],
+          "etichette": ["piccante"],
+          "disponibile": true
+        },
+        {
+          "nome": "Capricciosa",
+          "ingredienti": "Pomodoro, fior di latte, prosciutto cotto, funghi, carciofini, olive nere",
+          "prezzo": 8.5,
+          "allergeni": ["glutine", "latte"],
+          "etichette": [],
+          "disponibile": true
+        }
+      ]
+    },
+    {
+      "nome": "Pizze bianche",
+      "descrizione": "",
+      "piatti": [
+        {
+          "nome": "Quattro formaggi",
+          "ingredienti": "Fior di latte, gorgonzola, provola affumicata, parmigiano reggiano",
+          "prezzo": 8,
+          "allergeni": ["glutine", "latte"],
+          "etichette": ["vegetariana"],
+          "disponibile": true
+        },
+        {
+          "nome": "Salsiccia e friarielli",
+          "ingredienti": "Fior di latte, salsiccia, friarielli, peperoncino",
+          "prezzo": 9,
+          "allergeni": ["glutine", "latte"],
+          "etichette": ["consigliata", "piccante"],
+          "disponibile": true
+        },
+        {
+          "nome": "Mortadella e pistacchio",
+          "ingredienti": "Fior di latte, mortadella, granella di pistacchio, stracciatella",
+          "prezzo": 10,
+          "allergeni": ["glutine", "latte", "frutta_a_guscio"],
+          "etichette": ["novita"],
+          "disponibile": false
+        }
+      ]
+    },
+    {
+      "nome": "Fritti",
+      "descrizione": "",
+      "piatti": [
+        {
+          "nome": "Supplì",
+          "ingredienti": "Riso, ragù, mozzarella, panatura",
+          "prezzo": 2.5,
+          "allergeni": ["glutine", "latte", "uova", "sedano"],
+          "etichette": [],
+          "disponibile": true
+        },
+        {
+          "nome": "Patatine fritte",
+          "ingredienti": "",
+          "prezzo": 4,
+          "allergeni": [],
+          "etichette": ["vegana"],
+          "disponibile": true
+        }
+      ]
+    },
+    {
+      "nome": "Bevande",
+      "descrizione": "",
+      "piatti": [
+        {
+          "nome": "Acqua naturale o frizzante",
+          "ingredienti": "",
+          "allergeni": [],
+          "etichette": [],
+          "disponibile": true,
+          "varianti": [
+            { "nome": "0,5 l", "prezzo": 1.5 },
+            { "nome": "1 l", "prezzo": 2.5 }
+          ]
+        },
+        {
+          "nome": "Birra alla spina",
+          "ingredienti": "",
+          "allergeni": ["glutine"],
+          "etichette": [],
+          "disponibile": true,
+          "varianti": [
+            { "nome": "Piccola 0,2 l", "prezzo": 3 },
+            { "nome": "Media 0,4 l", "prezzo": 5 }
+          ]
+        }
+      ]
+    }
+  ]
+}

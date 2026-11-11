@@ -1,0 +1,303 @@
+:root {
+  --rosso: #b3261e;
+  --rosso-scuro: #8c1d17;
+  --crema: #fbf7f0;
+  --carta: #ffffff;
+  --testo: #2b2420;
+  --testo-tenue: #6b5f57;
+  --bordo: #e8dfd3;
+  --verde: #2e7d32;
+  --raggio: 12px;
+  --larghezza: 760px;
+  color-scheme: light;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+  scroll-padding-top: 64px;
+}
+
+body {
+  margin: 0;
+  font-family: system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
+  font-size: 16px;
+  line-height: 1.5;
+  color: var(--testo);
+  background: var(--crema);
+}
+
+h1,
+h2,
+h3 {
+  font-family: Georgia, "Times New Roman", serif;
+  line-height: 1.2;
+}
+
+/* Testata */
+.hero {
+  padding: 40px 20px 28px;
+  text-align: center;
+  color: #fff;
+  background: linear-gradient(160deg, var(--rosso), var(--rosso-scuro));
+}
+
+.hero h1 {
+  margin: 0;
+  font-size: clamp(2rem, 7vw, 3rem);
+}
+
+.sottotitolo {
+  margin: 6px 0 0;
+  opacity: 0.9;
+}
+
+.avviso {
+  max-width: var(--larghezza);
+  margin: 16px auto 0;
+  padding: 12px 16px;
+  border-radius: var(--raggio);
+  background: #fff3cd;
+  border: 1px solid #f0d78c;
+  text-align: center;
+  font-weight: 600;
+}
+
+/* Barra categorie */
+.nav-categorie {
+  position: sticky;
+  top: 0;
+  z-index: 10;
+  display: flex;
+  gap: 8px;
+  overflow-x: auto;
+  padding: 10px max(16px, calc((100% - var(--larghezza)) / 2));
+  background: rgba(251, 247, 240, 0.95);
+  backdrop-filter: blur(6px);
+  border-bottom: 1px solid var(--bordo);
+  scrollbar-width: none;
+}
+
+.nav-categorie::-webkit-scrollbar {
+  display: none;
+}
+
+.nav-categorie a {
+  flex: none;
+  padding: 6px 14px;
+  border-radius: 999px;
+  border: 1px solid var(--bordo);
+  background: var(--carta);
+  color: var(--testo);
+  text-decoration: none;
+  font-size: 0.95rem;
+  white-space: nowrap;
+}
+
+.nav-categorie a.attiva {
+  background: var(--rosso);
+  border-color: var(--rosso);
+  color: #fff;
+}
+
+/* Menu */
+.menu {
+  max-width: var(--larghezza);
+  margin: 0 auto;
+  padding: 8px 16px 32px;
+}
+
+.stato {
+  padding: 48px 0;
+  text-align: center;
+  color: var(--testo-tenue);
+}
+
+.categoria h2 {
+  margin: 32px 0 4px;
+  font-size: 1.6rem;
+  color: var(--rosso-scuro);
+}
+
+.categoria-descrizione {
+  margin: 0 0 8px;
+  color: var(--testo-tenue);
+  font-size: 0.95rem;
+}
+
+.piatti {
+  display: grid;
+  gap: 10px;
+  margin-top: 12px;
+}
+
+.piatto {
+  display: flex;
+  gap: 14px;
+  padding: 14px 16px;
+  background: var(--carta);
+  border: 1px solid var(--bordo);
+  border-radius: var(--raggio);
+}
+
+.foto {
+  flex: none;
+  width: 88px;
+  height: 88px;
+  object-fit: cover;
+  border-radius: 8px;
+}
+
+.piatto-corpo {
+  flex: 1;
+  min-width: 0;
+}
+
+.piatto-testa {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 12px;
+}
+
+.piatto h3 {
+  margin: 0;
+  font-size: 1.15rem;
+}
+
+.prezzo {
+  flex: none;
+  font-weight: 700;
+  font-variant-numeric: tabular-nums;
+  white-space: nowrap;
+}
+
+.ingredienti {
+  margin: 4px 0 0;
+  color: var(--testo-tenue);
+}
+
+.varianti {
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+}
+
+.varianti li {
+  display: flex;
+  justify-content: space-between;
+  gap: 12px;
+  padding: 2px 0;
+  border-bottom: 1px dotted var(--bordo);
+}
+
+.varianti li:last-child {
+  border-bottom: 0;
+}
+
+.allergeni {
+  margin: 6px 0 0;
+  font-size: 0.8rem;
+  color: var(--testo-tenue);
+}
+
+.etichette {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 6px;
+  list-style: none;
+  margin: 6px 0 0;
+  padding: 0;
+}
+
+.etichetta {
+  padding: 1px 8px;
+  border-radius: 999px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  background: #f1ece4;
+  color: var(--testo);
+}
+
+.etichetta-vegetariana,
+.etichetta-vegana {
+  background: #e3f1e4;
+  color: var(--verde);
+}
+
+.etichetta-piccante {
+  background: #fde4e1;
+  color: var(--rosso-scuro);
+}
+
+.etichetta-novita,
+.etichetta-consigliata {
+  background: #fff1c7;
+  color: #7a5a00;
+}
+
+.piatto.esaurito {
+  opacity: 0.55;
+}
+
+.piatto.esaurito h3 {
+  text-decoration: line-through;
+}
+
+.nota-esaurito {
+  margin: 6px 0 0;
+  font-size: 0.85rem;
+  font-weight: 600;
+  color: var(--rosso-scuro);
+}
+
+/* Piè di pagina */
+.footer {
+  padding: 28px 16px 40px;
+  border-top: 1px solid var(--bordo);
+  background: var(--carta);
+  color: var(--testo-tenue);
+  font-size: 0.95rem;
+}
+
+.info-locale {
+  max-width: var(--larghezza);
+  margin: 0 auto;
+  text-align: center;
+}
+
+.info-locale p {
+  margin: 6px 0;
+}
+
+.info-locale a {
+  color: var(--rosso);
+}
+
+.orari {
+  display: grid;
+  grid-template-columns: auto auto;
+  justify-content: center;
+  gap: 2px 16px;
+  margin: 12px 0;
+}
+
+.orari dt {
+  font-weight: 600;
+  text-align: right;
+}
+
+.orari dd {
+  margin: 0;
+  text-align: left;
+}
+
+@media (max-width: 420px) {
+  .foto {
+    width: 72px;
+    height: 72px;
+  }
+}

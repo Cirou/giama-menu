@@ -1,0 +1,142 @@
+# Configurazione del pannello di gestione (Sveltia CMS).
+# Documentazione: https://sveltiacms.app/en/docs
+#
+# Le opzioni di "allergeni" ed "etichette" devono restare allineate con
+# ALLERGENI ed ETICHETTE in assets/app.js.
+
+backend:
+  name: github
+  repo: Cirou/giama-menu
+  branch: main
+  # URL del worker Cloudflare per il login (vedi README, sezione "Login del gestore").
+  # Sostituisci CAMBIA-QUI con il sottodominio workers.dev del tuo account Cloudflare.
+  base_url: https://sveltia-cms-auth.CAMBIA-QUI.workers.dev
+  commit_messages:
+    update: "Menu: aggiorna {{slug}} (da {{author-login}})"
+    uploadMedia: "Menu: carica foto {{path}}"
+    deleteMedia: "Menu: elimina foto {{path}}"
+
+site_url: https://cirou.github.io/giama-menu/
+display_url: https://cirou.github.io/giama-menu/
+
+media_folder: images
+public_folder: /images
+
+collections:
+  - name: contenuti
+    label: Contenuti del sito
+    files:
+      - name: menu
+        label: Menu
+        file: content/menu.json
+        fields:
+          - name: categorie
+            label: Categorie
+            label_singular: categoria
+            widget: list
+            collapsed: true
+            summary: "{{nome}}"
+            fields:
+              - { name: nome, label: Nome categoria, widget: string }
+              - name: descrizione
+                label: Descrizione (facoltativa)
+                widget: string
+                required: false
+              - name: piatti
+                label: Piatti
+                label_singular: piatto
+                widget: list
+                collapsed: true
+                summary: "{{nome}}"
+                fields:
+                  - { name: nome, label: Nome, widget: string }
+                  - name: ingredienti
+                    label: Ingredienti / descrizione
+                    widget: text
+                    required: false
+                  - name: prezzo
+                    label: Prezzo (€)
+                    hint: Lascia vuoto se il piatto ha più formati con prezzi diversi (vedi "Formati").
+                    widget: number
+                    value_type: float
+                    min: 0
+                    step: 0.5
+                    required: false
+                  - name: varianti
+                    label: Formati (facoltativi)
+                    label_singular: formato
+                    hint: "Es. 0,5 l / 1 l per le bevande, o Normale / Maxi per le pizze."
+                    widget: list
+                    required: false
+                    summary: "{{nome}} – € {{prezzo}}"
+                    fields:
+                      - { name: nome, label: Formato, widget: string }
+                      - { name: prezzo, label: Prezzo (€), widget: number, value_type: float, min: 0, step: 0.5 }
+                  - name: disponibile
+                    label: Disponibile
+                    hint: Togli la spunta per mostrarlo come "momentaneamente non disponibile".
+                    widget: boolean
+                    default: true
+                  - name: etichette
+                    label: Etichette
+                    widget: select
+                    multiple: true
+                    required: false
+                    options:
+                      - { label: Consigliata, value: consigliata }
+                      - { label: Novità, value: novita }
+                      - { label: Vegetariana, value: vegetariana }
+                      - { label: Vegana, value: vegana }
+                      - { label: Piccante, value: piccante }
+                  - name: allergeni
+                    label: Allergeni
+                    widget: select
+                    multiple: true
+                    required: false
+                    options:
+                      - { label: Glutine, value: glutine }
+                      - { label: Crostacei, value: crostacei }
+                      - { label: Uova, value: uova }
+                      - { label: Pesce, value: pesce }
+                      - { label: Arachidi, value: arachidi }
+                      - { label: Soia, value: soia }
+                      - { label: Latte, value: latte }
+                      - { label: Frutta a guscio, value: frutta_a_guscio }
+                      - { label: Sedano, value: sedano }
+                      - { label: Senape, value: senape }
+                      - { label: Sesamo, value: sesamo }
+                      - { label: Solfiti, value: solfiti }
+                      - { label: Lupini, value: lupini }
+                      - { label: Molluschi, value: molluschi }
+                  - name: foto
+                    label: Foto (facoltativa)
+                    widget: image
+                    required: false
+
+      - name: info
+        label: Informazioni del locale
+        file: content/info.json
+        fields:
+          - { name: nome, label: Nome del locale, widget: string }
+          - { name: sottotitolo, label: Sottotitolo, widget: string, required: false }
+          - name: avviso
+            label: Avviso in evidenza
+            hint: "Es. \"Chiusi per ferie dal 10 al 20 agosto\". Lascia vuoto per non mostrare nulla."
+            widget: string
+            required: false
+          - { name: indirizzo, label: Indirizzo, widget: string, required: false }
+          - { name: telefono, label: Telefono, widget: string, required: false }
+          - name: orari
+            label: Orari
+            label_singular: orario
+            widget: list
+            required: false
+            summary: "{{giorni}}: {{orario}}"
+            fields:
+              - { name: giorni, label: Giorni, widget: string }
+              - { name: orario, label: Orario, widget: string }
+          - name: note
+            label: Note in fondo al menu
+            hint: Coperto, impasti alternativi, informazioni sugli allergeni…
+            widget: text
+            required: false
